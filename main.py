@@ -5,17 +5,30 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title("🔬 Laboratorio de Física")
+inicio = st.Page(
+    "pages/inicio.py",
+    title="Inicio",
+    icon=":material/home:"
+)
 
-st.write("""
-Bienvenido al laboratorio virtual.
+pendulo = st.Page(
+    "pages/pendulo.py",
+    title="Péndulo",
+    icon=":material/timer:"
+)
 
-Usa el menú de la izquierda para seleccionar el experimento:
-- 🕰️ Péndulo
-- ⚙️ Esfera
-""")
+esfera = st.Page(
+    "pages/esfera.py",
+    title="Esfera",
+    icon=":material/circle:"
+)
 
-st.info("Selecciona una página desde la barra lateral 👉")
+pg = st.navigation(
+    [inicio, pendulo, esfera]
+)
+
+pg.run()
+
 
 
 
